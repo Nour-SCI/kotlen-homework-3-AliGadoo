@@ -4,7 +4,7 @@ import buildutils.configureDiktat
 import buildutils.createDiktatTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-@Suppress("DSL_SCOPE_VIOLATION") // "libs" produces a false-positive warning, see https://youtrack.jetbrains.com/issue/KTIJ-19369
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id(libs.plugins.kotlin.jvm.get().pluginId)
     alias(libs.plugins.buildconfig) apply false
@@ -17,6 +17,7 @@ allprojects {
     repositories {
         mavenCentral()
     }
+    apply(plugin = "org.jetbrains.kotlin.jvm")
 
     dependencies {
         implementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
